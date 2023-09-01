@@ -41,8 +41,7 @@ class worker
  Future<void> getData() async
   {
     try {
-      var response = await http.get(Uri.parse(
-          "http://api.openweathermap.org/data/2.5/weather?q=$location &appid=e34a5eb0b4c5ff748fdf9219a63d224e"));
+      var response = await http.get(Uri.parse("http://api.openweathermap.org/data/2.5/weather?q=$location &appid=e34a5eb0b4c5ff748fdf9219a63d224e"));
       Map data = jsonDecode(response.body);
       if (response.statusCode != 200) {
         return;

@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:weatherapp/weathermodel.dart' show worker;
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -21,11 +23,11 @@ var hum;
 var airSPeed;
 var descr;
 var mainn;
-var city = "indore";
+ var city ;
 
 
 
-  void startApp() async
+  void startApp(var  city ) async
   {
 
 
@@ -39,7 +41,7 @@ var city = "indore";
        airSPeed = instance.air_speed;
        descr = instance.description;
        mainn = instance.main;
-       Future.delayed(Duration(seconds: 4),() {
+       Future.delayed(Duration(seconds: 1),() {
          Navigator.pushReplacementNamed(context, '/home',arguments:{
            "temp_value" : Temp,
            "humidity_value" : hum,
@@ -58,7 +60,7 @@ var city = "indore";
 @override
   void initState() {
 
-  startApp();
+
 
     super.initState();
 
@@ -66,6 +68,11 @@ var city = "indore";
   @override
 
   Widget build(BuildContext context) {
+  // Object? search = ModalRoute.of(context)?.settings.arguments;
+
+
+   // Map? search = ModalRoute.of(context)!.settings.arguments  as Map ;
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
     home: Scaffold(

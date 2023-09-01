@@ -41,7 +41,6 @@ class HomeState extends State<Home> {
     var city = city_name[_random.nextInt(city_name.length)];
    Map<String , dynamic> info = ModalRoute.of(context)!.settings.arguments  as Map<String, dynamic> ;
     String t  =  ((info['temp_value']).toString().substring(0,4));
-   var getcity = info['city_value'];
    var hum = info['humidity_value'];
    var air = ((info['airspeed_value']));
    String d = info['description_value'];
@@ -72,6 +71,7 @@ class HomeState extends State<Home> {
                 children: [
                   GestureDetector(
                     onTap: () {
+                      print(searchController.text);
                       Navigator.pushNamed(context, "/loading",arguments: {
                         "searchText" : searchController.text,
                       });
@@ -113,7 +113,7 @@ class HomeState extends State<Home> {
                 padding: const EdgeInsets.all(26),
                 child:Row(
                   children: [
-                  // Image.network("https://openweathermap.org/img/wn/10d@2x.png "),
+
                     Column(
                       children: [
                         Text("$d",style: TextStyle(
@@ -122,10 +122,10 @@ class HomeState extends State<Home> {
                           color: Colors.black,
                         ),),
 
-                        Text("In Ahemdabad",style: TextStyle(
+                        Text("In  $city",style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 18,
-                          color: Colors.white70,
+                          color: Colors.black,
                         ),
                         ),
                       ],
